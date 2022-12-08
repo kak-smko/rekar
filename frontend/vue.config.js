@@ -36,7 +36,7 @@ module.exports = {
       msTileImage: 'pwa/logo?w=144',
             maskIcon: 'storage/site/safari-pinned-tab.svg',
     },
-    name: "renus",
+    name: "resaz",
     themeColor: "#fff",
     msTileColor: "#000000",
     appleMobileWebAppCapable: "yes",

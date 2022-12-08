@@ -1,17 +1,15 @@
 import { createRouter, createWebHistory } from "vue-router";
-import { guest, role } from "./guards";
+import { role } from "./guards";
 
 import template from "../layouts/admin";
 
 const notFound = () => import("../views/index/notFound");
 const law = () => import("../views/index/user/law");
 
-
 /* {{place new import}} */
 const base = () => import("../views/admin/dashboard");
 
 const routes = [
-
   {
     path: "/laws",
     name: "laws",

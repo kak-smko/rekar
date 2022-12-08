@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import { guest, auth } from "./guards";
+import { auth } from "./guards";
 
 import IndexLayout from "../layouts/home";
 import UserLayout from "../layouts/user";

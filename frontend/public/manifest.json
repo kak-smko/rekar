@@ -1,6 +1,6 @@
 {
-  "name": "renus",
-  "short_name": "renus",
+  "name": "resaz",
+  "short_name": "resaz",
   "icons": [
     {
       "src": "/pwa/logo?w=36",
@@ -50,6 +50,6 @@
   "theme_color": "#fff",
   "lang": "fa",
   "dir": "rtl",
-  "description": "renus",
+  "description": "resaz",
   "start_url": "/"
 }

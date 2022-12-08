@@ -11,7 +11,7 @@
       ></r-progress-circular>
       <span class="mt-2">{{ $t("loading") }}</span>
     </div>
-    <router-view v-else/>
+    <router-view v-else />
   </r-app>
 </template>
 <script>

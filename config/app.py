@@ -1,9 +1,9 @@
-name = "renus"
+name = "resaz"
 env = "local"
 debug = True
 auto_add_translate = True
 key = "dfhfUGFKgk@glJKKskkefo648l964kcvnknfjlkd68#49ldfxkcnvkmxcv56738"
 public_folder = "public"
-ipHeader = "ar-real-ip"
+ipHeader = "cf-connecting-ip"
 cors_allow = ["*"]
 cacheDriver='file'

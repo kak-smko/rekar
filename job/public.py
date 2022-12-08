@@ -1,7 +1,7 @@
 import os,sys,time
 
-sys.path.append("/var/sapp")
-os.chdir('/var/sapp')
+sys.path.append("/var/app")
+os.chdir('/var/app')
 
 from renus.core.cache import Cache
 from renus.core.schedule import Schedule

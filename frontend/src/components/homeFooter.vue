@@ -46,7 +46,7 @@
 import InstallApp from "./installApp";
 export default {
   name: "homeFooter",
-  components: {InstallApp},
+  components: { InstallApp },
   data() {
     return {
       social_media: {},
