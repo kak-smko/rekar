@@ -6,76 +6,22 @@ from renus.core.routing import Router
 from renus.core.response import FileResponse, JsonResponse, TextResponse, HtmlResponse
 from renus.core.status import Status
 from renus.util.helper import get_random_string
-
+from routes.html import template
 from extension.renus.setting.model import Setting
-
-
-def html(request, name):
-    rnd = get_random_string(10)
-    settings = Setting(request).where({'name': {
-        '$in': ['langs', 'site_default', 'site_color', 'meta_tag']}}).get()
-
-    site_color = None
-    site_default = None
-    langs = None
-    meta_tag = None
-
-    for setting in settings:
-        if setting.name == 'site_color':
-            site_color = setting.value
-        if setting.name == 'site_default':
-            site_default = setting.value
-        if setting.name == 'langs':
-            langs = setting.value
-        if setting.name == 'meta_tag':
-            meta_tag = setting.value
-
-    if site_default is None:
-        return 'not_found_site'
-
-    with open(f'public/{name}.html') as f:
-        file = f.read()
-
-    s = ''
-    s += f"<meta http-equiv=\"Content-Security-Policy\" content=\"img-src 'self' data: blob:;default-src 'self';style-src 'self' 'unsafe-inline';script-src 'self' 'nonce-{rnd}'\">"
-    if meta_tag:
-        for meta in meta_tag:
-            s+=f'<meta name="{meta["name"]}" content="{meta["content"]}">'
-
-    if site_color:
-        s += '<style>body {'
-        for color, value in site_color.items():
-            if color != 'id':
-                s += f'--color-{color}-light:{value["l"]};'
-                s += f'--color-{color}-dark:{value["d"]};'
-        s += '}</style></head>'
-    file = file.replace('</head>', s)
-    s = ''
-    r = {}
-    if site_default is not None:
-        r['lang'] = site_default['lang']
-        r['dark'] = site_default['dark']
-        r['rtl'] = site_default['rtl']
-
-    if langs is not None:
-        r['langs'] = langs
-    if len(r) > 0:
-        s += '<body><script nonce="' + rnd + f'">window.site_settings={json.dumps(r)};</script>'
-    return file.replace('<body>', s)
 
 def index(request):
     header = {
         'Cache-Control': 'max-age=0'
     }
 
-    return HtmlResponse(html(request, 'index'), headers=header)
+    return HtmlResponse(template(request, 'index'), headers=header)
 
 def admin(name,request):
     header = {
         'Cache-Control': 'max-age=0'
     }
 
-    return HtmlResponse(html(request, 'admin'), headers=header)
+    return HtmlResponse(template(request, 'admin'), headers=header)
 
 
 

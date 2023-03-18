@@ -26,7 +26,7 @@ export default {
 </script>
 <style lang="scss">
 body {
-  --color-background-one-light: #fff;
+  --color-background-one: #fff;
 }
 
 .page-loading {

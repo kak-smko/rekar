@@ -34,7 +34,7 @@
       </div>
       <div class="hover-div" @click.prevent="open = false"></div>
     </aside>
-    <r-content :flipped="$r.breakpoint.lgAndUp" below-header>
+    <r-content :flipped="$r.breakpoint.lgAndUp" below-header="80px">
       <router-view v-slot="{ Component }">
         <transition name="slide-start" mode="out-in">
           <component :is="Component" />
@@ -172,7 +172,7 @@ $menu-width: 300px;
       overflow-y: auto;
       width: $menu-width;
       transition: 0.3s all ease-in-out;
-      background-color: var(--color-one-light);
+      background-color: var(--color-one);
       height: 100%;
       position: absolute;
       top: 0;

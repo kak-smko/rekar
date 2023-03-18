@@ -103,7 +103,7 @@ export default {
   .btn-icon {
     opacity: 0.5;
     &:hover {
-      background-color: var(--color-one-light);
+      background-color: var(--color-one);
       opacity: 1;
     }
   }
