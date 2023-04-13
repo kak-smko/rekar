@@ -1,4 +1,4 @@
-name = "resaz"
+name = "rekar"
 env = "local"
 debug = True
 auto_add_translate = True

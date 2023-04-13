@@ -1,6 +1,6 @@
 {
-  "name": "resaz",
-  "short_name": "resaz",
+  "name": "rekar",
+  "short_name": "rekar",
   "icons": [
     {
       "src": "/pwa/logo?w=36",
@@ -48,8 +48,8 @@
   "display": "standalone",
   "background_color": "#f5f5f5",
   "theme_color": "#fff",
-  "lang": "fa",
-  "dir": "rtl",
-  "description": "resaz",
+  "lang": "en",
+  "dir": "ltr",
+  "description": "rekar",
   "start_url": "/"
 }

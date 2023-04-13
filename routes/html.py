@@ -3,8 +3,8 @@ import json
 from renus.core.response import JsonResponse
 from renus.util.helper import get_random_string
 
-from extension.renus.setting.model import Setting
-from extension.renus.translate.model import Translate
+from app.extension.renus.setting.model import Setting
+from app.extension.renus.translate.model import Translate
 
 def get_translates(request,name,lang):
     translates = Translate(request)

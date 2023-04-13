@@ -7,7 +7,7 @@ from renus.core.response import FileResponse, JsonResponse, TextResponse, HtmlRe
 from renus.core.status import Status
 from renus.util.helper import get_random_string
 from routes.html import template
-from extension.renus.setting.model import Setting
+from app.extension.renus.setting.model import Setting
 
 def index(request):
     header = {

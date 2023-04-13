@@ -2,7 +2,7 @@ import uvicorn,os
 import multiprocessing
 from renus.app import App
 import routes.index
-from extension.renus.tracker.middleware import TrackerMiddleware
+from app.extension.renus.tracker.middleware import TrackerMiddleware
 
 workers = multiprocessing.cpu_count() * 2 + 1
 
