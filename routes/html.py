@@ -1,6 +1,5 @@
 import json
 
-from renus.core.response import JsonResponse
 from renus.util.helper import get_random_string
 
 from app.extension.renus.setting.model import Setting
@@ -25,6 +24,7 @@ def set_meta(request,rnd):
 
 def set_color(request,site_default):
     isDark=site_default.get('dark', False)
+    site_color=site_default.get('site_color',False)
     t='l'
     if isDark:
         t='d'
@@ -61,7 +61,7 @@ def set_font(site_default,lang):
 
 def set_head(request,site_default,lang,file,rnd):
     s = set_meta(request,rnd)
-    s += set_color(request)
+    s += set_color(request,site_default)
     s += set_font(site_default, lang)
     s += '</head>'
     return file.replace('</head>', s)
