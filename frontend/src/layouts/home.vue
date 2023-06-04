@@ -8,7 +8,7 @@
         </div>
       </template>
     </r-toolbar>
-    <r-content class="flex-grow-1">
+    <r-content>
       <router-view v-slot="{ Component }">
         <transition name="slide-end" mode="out-in">
           <keep-alive :exclude="['singleBlog']">
@@ -38,4 +38,7 @@ export default {
 
 <style lang="scss">
 @import "~renusify/style/_include";
+.r-content {
+  min-height: 80vh;
+}
 </style>

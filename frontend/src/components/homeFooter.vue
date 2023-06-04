@@ -19,11 +19,12 @@
               :href="item"
               target="_blank"
             >
-              <img
+              <r-img
                 :src="`/storage/logos/${i}.svg`"
                 :alt="i"
                 width="25"
                 height="25"
+                is-svg
               />
             </r-btn>
           </div>

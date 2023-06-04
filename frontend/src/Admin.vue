@@ -4,11 +4,11 @@
       class="page-loading d-flex h-center v-center color-warning-text flex-column"
       v-if="!all_lang_loaded || !$r.store.user_loaded"
     >
-      <r-progress-circular
+      <r-progress-circle
         size="100"
         indeterminate
         width="4"
-      ></r-progress-circular>
+      ></r-progress-circle>
       <span class="mt-2">{{ $t("loading") }}</span>
     </div>
     <router-view v-else />

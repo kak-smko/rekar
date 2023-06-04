@@ -1,9 +1,14 @@
 # rekar
+## clone project
+```
+git clone https://github.com/kak-smko/rekar
+```
+
 ## Modify config directory files 
 
 ## install backend
 ```
-pip -r install requirements.txt
+pip install -r requirements.txt
 py command.py install
 ``` 
 ## run backend
