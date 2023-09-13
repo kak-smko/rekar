@@ -8,7 +8,6 @@ export const App = {
     if (window.site_settings) {
       this.translates = window.site_settings["translates"];
       this.$r.langs = window.site_settings["langs"];
-      this.$r.dark = window.site_settings["dark"];
       this.$r.rtl = window.site_settings["rtl"];
       this.$r.lang = window.site_settings["lang"];
     }
@@ -44,9 +43,6 @@ export const App = {
         this.$r.store.user_loaded = true;
       }
 
-      if (this.$storage.get("theme.night") !== null) {
-        this.$r.dark = this.$storage.get("theme.night");
-      }
       if (this.$storage.get("rtl") !== null) {
         this.$r.rtl = this.$storage.get("rtl");
       }
