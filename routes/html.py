@@ -22,9 +22,8 @@ def set_meta(request,rnd):
             s += f'<meta name="{meta["name"]}" content="{meta["content"]}">'
     return s
 
-def set_color(request,site_default):
+def set_color(request,site_default,site_color):
     isDark=site_default.get('dark', False)
-    site_color=site_default.get('site_color',False)
     t='l'
     if isDark:
         t='d'
@@ -59,9 +58,9 @@ def set_font(site_default,lang):
     return s
 
 
-def set_head(request,site_default,lang,file,rnd):
+def set_head(request,site_default,site_color,lang,file,rnd):
     s = set_meta(request,rnd)
-    s += set_color(request,site_default)
+    s += set_color(request,site_default,site_color)
     s += set_font(site_default, lang)
     s += '</head>'
     return file.replace('</head>', s)
@@ -92,6 +91,7 @@ def set_body(request, name, lang,site_default,file,rnd):
 def template(request, name):
     rnd = get_random_string(10)
     site_default = Setting(request).hub.get('site_default',None)
+    site_color = Setting(request).hub.get('site_color',None)
 
     if site_default is None:
         return 'not_found_site'
@@ -104,5 +104,5 @@ def template(request, name):
     with open(f'public/{name}.html') as f:
         file = f.read()
 
-    file=set_head(request,site_default,lang,file,rnd)
+    file=set_head(request,site_default,site_color,lang,file,rnd)
     return set_body(request, name, lang,site_default,file,rnd)
