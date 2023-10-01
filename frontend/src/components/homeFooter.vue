@@ -55,12 +55,6 @@ export default {
   },
   created() {
     this.get();
-    window.addEventListener("beforeinstallprompt", e => {
-      // Prevent Chrome 67 and earlier from automatically showing the prompt
-      console.log("beforeinstallprompt");
-      e.preventDefault();
-      this.$r.store.deferredPrompt = e;
-    });
   },
   methods: {
     go(hash) {

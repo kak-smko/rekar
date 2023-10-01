@@ -20,8 +20,14 @@ import { App } from "./mixins/app";
 export default {
   mixins: [App],
   created() {
+    window.addEventListener("beforeinstallprompt", e => {
+      // Prevent Chrome 67 and earlier from automatically showing the prompt
+      console.log("beforeinstallprompt");
+      e.preventDefault();
+      this.$r.store.deferredPrompt = e;
+    });
     this.userInfo();
-  },
+  }
 };
 </script>
 <style lang="scss">
