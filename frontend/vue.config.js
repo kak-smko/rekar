@@ -32,7 +32,7 @@ module.exports = {
   pwa: {
     workboxOptions: {
       skipWaiting: true,
-      exclude: [/^.*admin.*$/],
+      exclude: [/^.*admin.*$/, "index.html"],
     },
     iconPaths: {
       favicon32: "pwa/logo?w=32",
