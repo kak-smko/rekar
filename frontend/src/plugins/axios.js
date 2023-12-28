@@ -6,17 +6,17 @@ axios.defaults.baseURL = `${
     ? process.env.VUE_APP_API_production_URL
     : process.env.VUE_APP_API_URL
 }/api`;
-axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
+axios.defaults.headers["X-Requested-With"] = "XMLHttpRequest";
 axios.defaults.headers.post["Content-Type"] =
   "application/x-www-form-urlencoded";
 
 axios.interceptors.request.use(
   (config) => {
     if (window.app.$storage.has("auth.token")) {
-      config.headers.common.Authorization =
+      config.headers.Authorization =
         window.app.$storage.get("auth.token");
     }
-    config.headers.common.lang = window.app.$r.lang;
+    config.headers.lang = window.app.$r.lang;
 
     return config;
   },

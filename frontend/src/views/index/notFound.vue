@@ -13,7 +13,7 @@
               <h1 class="line-btm display-4">صفحه مورد نظر یافت نشد:(</h1>
             </r-col>
             <r-col class="col-12">
-              <r-search-input url="/home/blogs/search" :label="$t('search')">
+              <r-search-box url="/home/blogs/search" :label="$t('search')">
                 <template v-slot="{ item }">
                   <router-link
                     class="w-full"
@@ -38,7 +38,7 @@
                     </r-row>
                   </router-link>
                 </template>
-              </r-search-input>
+              </r-search-box>
             </r-col>
           </r-row>
         </r-container>
