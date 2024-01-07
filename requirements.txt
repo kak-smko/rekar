@@ -1,8 +1,5 @@
 renus
 uvicorn
-python-multipart
-aiofiles
-pymongo
 Pillow
 
 

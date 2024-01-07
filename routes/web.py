@@ -54,16 +54,12 @@ def default(request,package):
         for meta in meta_tag:
             s += f'<meta f="siteDefault" name="{meta["name"]}" content="{meta["content"]}">'
     meta_tag=s
-    isDark = site_default.get('dark', False)
-    t = 'l'
-    if isDark:
-        t = 'd'
     colors = ''
     if site_color:
         colors += 'body {'
         for color, value in site_color.items():
             if color != 'id':
-                colors += f'--color-{color}:{value[t]};'
+                colors += f'--color-{color}:{value};'
         colors += '}'
     translates = Translate(request)
     translates.hidden_fields = ['_id']

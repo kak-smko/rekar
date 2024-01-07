@@ -8,7 +8,7 @@ axios.defaults.baseURL = `${
 }/api`;
 axios.defaults.headers["X-Requested-With"] = "XMLHttpRequest";
 axios.defaults.headers.post["Content-Type"] =
-  "application/x-www-form-urlencoded";
+  "application/json";
 
 axios.interceptors.request.use(
   (config) => {
