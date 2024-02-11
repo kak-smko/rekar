@@ -1,5 +1,5 @@
-import { createRouter, createWebHistory } from "vue-router";
-import { auth } from "./guards";
+import {createRouter, createWebHistory} from "vue-router";
+import {auth, profile_complete} from "./guards";
 
 import IndexLayout from "../layouts/home";
 import UserLayout from "../layouts/user";
@@ -21,7 +21,11 @@ const routes = [
       auth(to, from, next);
     },
     children: [
-      { path: "", name: "dashboard", component: dashboard },
+      {
+        path: "", name: "dashboard", component: dashboard, beforeEnter: (to, from, next) => {
+          profile_complete(to, from, next);
+        }
+      },
       /* {{place new Route user}} */
     ],
   },
@@ -29,14 +33,14 @@ const routes = [
     path: "/",
     component: IndexLayout,
     children: [
-      { path: "", name: "base", component: base },
+      {path: "", name: "base", component: base},
       {
         path: "/home/laws",
         name: "laws",
         component: law,
       },
       /* {{place new Route home}} */
-      { path: "/:pathMatch(.*)*", name: "not_found", component: notFound },
+      {path: "/:pathMatch(.*)*", name: "not_found", component: notFound},
     ],
   },
 ];
@@ -51,10 +55,10 @@ const router = createRouter({
     return new Promise((resolve) => {
       if (savedPosition) {
         setTimeout(() => {
-          resolve({ left: 0, top: savedPosition["top"] });
+          resolve({left: 0, top: savedPosition["top"]});
         }, 500);
       } else {
-        resolve({ left: 0, top: 0 });
+        resolve({left: 0, top: 0});
       }
     });
   },

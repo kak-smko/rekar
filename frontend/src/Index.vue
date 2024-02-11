@@ -21,9 +21,6 @@ export default {
       e.preventDefault();
       this.$r.store.deferredPrompt = e;
     });
-    this.setDefault();
-    this.getDefault();
-    this.userInfo();
   }
 };
 </script>

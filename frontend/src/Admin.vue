@@ -17,12 +17,7 @@
 <script>
 import { App } from "./mixins/app";
 export default {
-  mixins: [App],
-  created() {
-    this.setDefault();
-    this.getDefault();
-    this.userInfo();
-  },
+  mixins: [App]
 };
 </script>
 <style lang="scss" scoped>
