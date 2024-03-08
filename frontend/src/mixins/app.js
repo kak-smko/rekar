@@ -11,6 +11,7 @@ export const App = {
   },
   methods: {
     setDefault() {
+      this.lang_added = false;
       let data = this.$storage.get("siteDefault", false);
       if (data === false) {
         return;
@@ -45,7 +46,9 @@ export const App = {
       } else {
         this.$translate.loads(["renusify"]);
       }
-      this.lang_added=true
+      setTimeout(()=>{
+      this.lang_added = true;
+      },50)
       this.$helper.setCookie("lang", this.$r.lang, 1000 * 24 * 60 * 60);
       document.documentElement.setAttribute("lang", this.$r.lang);
     },
@@ -89,7 +92,7 @@ export const App = {
   computed: {
     all_lang_loaded() {
       if(!this.lang_added){
-        return falseyarn serv
+        return false
       }
       for (let item in this.$r.store.langs_loaded) {
         if (this.$r.store.langs_loaded[item] === false) {

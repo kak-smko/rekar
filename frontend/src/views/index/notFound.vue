@@ -3,7 +3,7 @@
     <r-meta
       title="404 page"
       description="404 page: not found"
-      :url="$helper.url() + $route.path"
+      :url="$route.path"
     ></r-meta>
     <r-row class="color-header no-gutters">
       <r-col>
