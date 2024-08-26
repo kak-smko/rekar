@@ -115,8 +115,8 @@ def opt(path, request):
     return TextResponse('', Status.HTTP_405_METHOD_NOT_ALLOWED)
 
 r = Router()
-r.option('{path:[\w\W]*}', func=opt)
+r.option(r'{path:[\w\W]*}', func=opt)
 r.get('/', func=index)
 r.get('api/site-default/{package}', func=default)
-r.get('/{name:admin[\s\S]*}', func=admin)
-r.get('/{name:[\s\S]*}', func=public)
+r.get(r'/{name:admin[\s\S]*}', func=admin)
+r.get(r'/{name:[\s\S]*}', func=public)
