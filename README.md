@@ -1,28 +1,28 @@
 # rekar
-## clone project
+## 1. clone project
 ```
 git clone https://github.com/kak-smko/rekar
 ```
 
-## Modify config directory files 
+## 2. Modify config directory files 
 
-## install backend
+## 3. install backend
 ```
 pip install -r requirements.txt
 py command.py install
 ``` 
-## run backend
+## 4. run backend
 ```
 py index.py
 ```
 
-## install frontend
+## 5. install frontend
 ```
 cd frontend
 npm i
 ```
 
-## run Frontend
+## 6. run Frontend
 ```
 cd frontend
 npm run serv
