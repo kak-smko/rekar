@@ -73,17 +73,17 @@ def default(request,package):
         if len(fonts) == 1:
             f = fonts[0]
             typefont = 'woff2' if f.endswith('.woff2') else 'woff'
-            s += f'<link f="siteDefault" href="/{f}" as="font" type="font/{typefont}" crossorigin="anonymous">'
-            s += '<style f="siteDefault">@font-face {font-family: fontOne;font-style: normal;font-display: swap;src: local(fontOne), ' + f'url(/{f}) format("{typefont}")' + '}*{font-family: fontOne, sans-serif}</style>'
+            s += f'<link f="siteDefault" href="{f}" as="font" type="font/{typefont}" crossorigin="anonymous">'
+            s += '<style f="siteDefault">@font-face {font-family: fontOne;font-style: normal;font-display: swap;src: local(fontOne), ' + f'url({f}) format("{typefont}")' + '}*{font-family: fontOne, sans-serif}</style>'
         elif len(fonts) == 2:
             f = fonts[0]
             f2 = fonts[1]
             typefont = 'woff2' if f.endswith('.woff2') else 'woff'
             typefont2 = 'woff2' if f2.endswith('.woff2') else 'woff'
-            s += f'<link f="siteDefault" href="/{f}" as="font" type="font/{typefont}" crossorigin="anonymous">'
-            s += f'<link f="siteDefault" href="/{f2}" as="font" type="font/{typefont2}" crossorigin="anonymous">'
-            s += '<style f="siteDefault">@font-face {font-family: fontOne;font-style: normal;font-display: swap;src: local(fontOne), ' + f'url(/{f}) format("{typefont}")' + '}*{font-family: fontOne, sans-serif } '
-            s += '@font-face {font-family: fontTwo;font-style: normal;font-display: swap;src: local(fontTwo), ' + f'url(/{f2}) format("{typefont2}")' + '}.font-two{font-family: fontTwo, sans-serif}</style>'
+            s += f'<link f="siteDefault" href="{f}" as="font" type="font/{typefont}" crossorigin="anonymous">'
+            s += f'<link f="siteDefault" href="{f2}" as="font" type="font/{typefont2}" crossorigin="anonymous">'
+            s += '<style f="siteDefault">@font-face {font-family: fontOne;font-style: normal;font-display: swap;src: local(fontOne), ' + f'url({f}) format("{typefont}")' + '}*{font-family: fontOne, sans-serif } '
+            s += '@font-face {font-family: fontTwo;font-style: normal;font-display: swap;src: local(fontTwo), ' + f'url({f2}) format("{typefont2}")' + '}.font-two{font-family: fontTwo, sans-serif}</style>'
     fonts = s
     r = {
         'fonts': fonts,
