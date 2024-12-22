@@ -4,11 +4,6 @@ export const App = {
       lang_added: false,
     };
   },
-  created() {
-    this.setDefault();
-    this.getDefault();
-    this.userInfo();
-  },
   methods: {
     setDefault() {
       this.lang_added = false;
@@ -32,6 +27,7 @@ export const App = {
         el.innerHTML = data["colors"];
         document.head.append(el);
       }
+      this.$r.store.version = data["version"] || 0;
       this.$r.langs = data["langs"] || {};
       this.$r.rtl = this.$storage.get("rtl", data["rtl"]);
       this.$r.lang = this.$storage.get("lang", data["lang"]);
@@ -44,25 +40,47 @@ export const App = {
         this.$translate.setMessages(r, this.$r.lang);
         this.$translate.local = this.$r.lang;
       } else {
-        this.$translate.loads(["renusify"]);
+        this.lang_loads(this.$r.lang)
       }
-      setTimeout(()=>{
-      this.lang_added = true;
-      },50)
+      setTimeout(() => {
+        this.lang_added = true;
+      }, 10);
       this.$helper.setCookie("lang", this.$r.lang, 1000 * 24 * 60 * 60);
       document.documentElement.setAttribute("lang", this.$r.lang);
     },
     getDefault() {
-      this.$axios.get("site-default/"+this.$r.package).then(({ data }) => {
+      this.$axios.get("site-default").then(({data}) => {
         let d = this.$storage.get("siteDefault", {});
         if (data["hash"] !== d["hash"]) {
           this.$storage.set("siteDefault", data);
-          this.setDefault();
+          setTimeout(() => {
+            window.location.reload()
+          }, 100)
         }
+        d = "";
+      }, () => {
+        this.lang_loads(this.$r.lang)
+
       });
     },
+    lang_loads(lang) {
+      this.$axios.get(`/translate/renusify,${this.$r.package}/${lang}`).then(({data}) => {
+        const d = {};
+        const lng = data.length
+        for (let i = 0; i < lng; i++) {
+          d[data[i].key] = data[i][lang];
+        }
+
+        this.$translate.setMessages(d, lang);
+        this.$translate.local = lang;
+      }).finally(() => {
+        setTimeout(() => {
+          this.lang_added = true;
+        }, 100);
+      })
+    },
     userInfo() {
-      this.$r.store.user = { login: false, info: {} };
+      this.$r.store.user = {login: false, info: {}};
       this.$r.store.user_loaded = false;
       if (this.$storage.get("auth.token", false)) {
         this.$r.store.user = this.$storage.get("user_login", {
@@ -70,7 +88,7 @@ export const App = {
           info: {},
         });
         this.$axios.get("user").then(
-          ({ data }) => {
+          ({data}) => {
             this.$r.store.user = data;
             this.$storage.set("user_login", data);
             this.$r.store.user_loaded = true;
@@ -88,17 +106,5 @@ export const App = {
         this.$r.store.user_loaded = true;
       }
     },
-  },
-  computed: {
-    all_lang_loaded() {
-      if(!this.lang_added){
-        return false
-      }
-      for (let item in this.$r.store.langs_loaded) {
-        if (this.$r.store.langs_loaded[item] === false) {
-          return false;
-        }
-      }
-      return true;
-    }}
+  }
 };

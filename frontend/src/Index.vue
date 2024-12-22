@@ -1,7 +1,7 @@
 <template>
   <r-app>
     <div
-      v-if="!all_lang_loaded"
+      v-if="!lang_added"
       class="d-flex h-center v-center color-one h-full"
     >
       <r-progress-circle size="100" indeterminate width="4"></r-progress-circle>
@@ -15,6 +15,9 @@ import { App } from "./mixins/app";
 export default {
   mixins: [App],
   created() {
+    this.setDefault();
+    this.getDefault();
+    this.userInfo();
     window.addEventListener("beforeinstallprompt", e => {
       // Prevent Chrome 67 and earlier from automatically showing the prompt
       console.log("beforeinstallprompt");

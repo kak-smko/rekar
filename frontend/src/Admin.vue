@@ -2,7 +2,7 @@
   <r-app>
     <div
       class="page-loading d-flex h-center v-center color-warning-text flex-column"
-      v-if="!all_lang_loaded || !$r.store.user_loaded"
+      v-if="!lang_added || !$r.store.user_loaded"
     >
       <r-progress-circle
         size="100"
@@ -17,7 +17,12 @@
 <script>
 import { App } from "./mixins/app";
 export default {
-  mixins: [App]
+  mixins: [App],
+  created(){
+    this.setDefault();
+    this.getDefault();
+    this.userInfo();
+  }
 };
 </script>
 <style lang="scss" scoped>
