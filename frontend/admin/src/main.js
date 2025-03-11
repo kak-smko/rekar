@@ -45,6 +45,9 @@ import {
   rTableCrud,
   rTelInput,
   rTextInput,
+  rTextArea,
+  rMaskInput,
+  rColorInput,
   rTimeAgo,
   rToolbar
 } from 'renusify/components'
@@ -56,7 +59,7 @@ const app = createApp(App)
   .use(renusify, {
     rtl: false,
     lang: 'en',
-    package: 'index',
+    package: 'admin',
     components: {
       rApp,
       rAvatar,
@@ -98,7 +101,10 @@ const app = createApp(App)
       rTableCrud,
       rTelInput,
       rTextInput,
+      rTextArea,
+      rColorInput,
       rTimeAgo,
+      rMaskInput,
       rToolbar
     },
     directives: { title }

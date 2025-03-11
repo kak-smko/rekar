@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --port=8085",
+    "dev": "vite --port=8081",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --fix",
@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "axios": "^1.7.9",
-    "renusify": "^2.3.1",
+    "renusify": "^2.3.2",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
   },

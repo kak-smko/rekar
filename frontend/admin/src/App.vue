@@ -10,7 +10,7 @@
   </r-app>
 </template>
 <script>
-import { App } from "./mixins/app";
+import { App } from "./mixins/app.js";
 
 export default {
   mixins: [App],

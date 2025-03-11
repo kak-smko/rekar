@@ -46,14 +46,11 @@ def default(request,package):
         lang = site_default['lang']
     langs = Setting(request).hub.get('translates',{}).get('langs', {})
     rtl = site_default['rtl']
-    meta_tag = Setting(request).hub.get('meta_tag', None)
-    s = ''
-    if Config('app').get('env','production')=='production':
-        s += f"<meta f='siteDefault' http-equiv=\"Content-Security-Policy\" content=\"img-src 'self' data: blob:;default-src 'self';style-src 'self' 'unsafe-inline';connect-src https://codenus.com 'self';script-src 'self' 'unsafe-eval'\">"
-    if meta_tag:
-        for meta in meta_tag:
-            s += f'<meta f="siteDefault" name="{meta["name"]}" content="{meta["content"]}">'
-    meta_tag=s
+
+    meta_tag = Setting(request).hub.get('meta_tag', '')
+    if Config('app').get('env', 'production') == 'local':
+        meta_tag = ''
+
     colors = ''
     if site_color:
         colors += 'body {'

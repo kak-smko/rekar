@@ -11,7 +11,7 @@
   </r-app>
 </template>
 <script>
-import { App } from "./mixins/app";
+import { App } from "./mixins/app.js";
 import PwaModal from '@/components/pwaModal.vue'
 
 export default {

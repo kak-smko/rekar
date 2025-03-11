@@ -1,22 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { role } from './guards'
+import { role } from './guards.js'
 
-import template from '../layouts/admin'
+import template from '../layouts/admin.vue'
 
-const notFound = () => import('../views/notFound')
-const law = () => import('../views/law')
+const notFound = () => import('../views/notFound.vue')
 
-/* {{place new import}} */
-const base = () => import('../views/dashboard')
+const base = () => import('../views/dashboard.vue')
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    {
-      path: '/laws',
-      name: 'laws',
-      component: law
-    },
+     /* {{place new Route}} */
     {
       path: '/admin',
       component: template,
@@ -25,7 +19,6 @@ const router = createRouter({
       },
       children: [
         { path: '', name: 'base', component: base },
-        /* {{place new Route}} */
         { path: '/:pathMatch(.*)*', name: 'not_found', component: notFound }
       ]
     }

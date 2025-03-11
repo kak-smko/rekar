@@ -21,6 +21,7 @@ export default defineConfig({
   server: {
    proxy:{
       '/api': 'http://localhost:4000',
+      '/storage': 'http://localhost:4000',
     }
   },
   plugins: [
@@ -29,8 +30,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
-      app: fileURLToPath(new URL('../../', import.meta.url))
+      '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
   css: {

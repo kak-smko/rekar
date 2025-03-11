@@ -9,11 +9,11 @@ git clone https://github.com/kak-smko/rekar
 ## 3. install backend
 ```
 pip install -r requirements.txt
-py command.py install
+python command.py extension
 ``` 
 ## 4. run backend
 ```
-py index.py
+python index.py
 ```
 
 ## 5. install frontend

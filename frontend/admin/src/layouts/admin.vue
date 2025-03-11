@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Panel from "./panel";
+import Panel from "./panel.vue";
 
 export default {
   name: "admin",
