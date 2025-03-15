@@ -49,7 +49,8 @@ import {
   rMaskInput,
   rColorInput,
   rTimeAgo,
-  rToolbar
+  rToolbar,
+  rNestable
 } from 'renusify/components'
 import { title } from 'renusify/directive'
 
@@ -105,7 +106,8 @@ const app = createApp(App)
       rColorInput,
       rTimeAgo,
       rMaskInput,
-      rToolbar
+      rToolbar,
+      rNestable
     },
     directives: { title }
   })

@@ -18,14 +18,19 @@ python index.py
 
 ## 5. install frontend
 ```
-cd frontend
+cd frontend/admin
+npm i
+cd frontend/index
 npm i
 ```
 
 ## 6. run Frontend
 ```
-cd frontend
-npm run serv
+cd frontend/admin
+npm run dev
+cd frontend/index
+npm run dev
 ``` 
 
 open browser and go to localhost:8080
+for admin open browser and go to localhost:8081
